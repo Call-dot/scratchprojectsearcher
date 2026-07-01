@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scratch Project Searcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Scratch Project Searcher</h1>
+    <p class="tagline">Search Scratch projects quickly — thumbnails, authors, and links.</p>
+  </header>
+
+  <main class="container">
+    <form id="searchForm" class="search-form" onsubmit="return false;">
+      <input id="query" type="search" placeholder="Search projects, users, or tags" aria-label="Search" />
+
+      <div class="controls">
+        <label>
+          Results per page
+          <select id="perPage">
+            <option value="12">12</option>
+            <option value="20" selected>20</option>
+            <option value="40">40</option>
+          </select>
+        </label>
+
+        <label>
+          Backup API
+          <select id="backupMode">
+            <option value="auto" selected>Auto (primary then proxy)</option>
+            <option value="primary">Primary only</option>
+            <option value="proxy">Proxy only</option>
+          </select>
+        </label>
+
+        <button id="searchBtn" class="btn">Search</button>
+      </div>
+    </form>
+
+    <section id="resultsInfo" class="results-info" aria-live="polite"></section>
+    <section id="results" class="grid"></section>
+
+    <nav id="pagination" class="pagination"></nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Colors: orange &amp; purple. Backup APIs: primary Scratch API then an optional proxy if the API fails.</p>
+    <p>Source: <a href="https://github.com/Call-dot/scartchprojectsearcher">Call-dot/scartchprojectsearcher</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
